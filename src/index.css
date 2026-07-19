@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @font-face {
   font-family: cabinet;
   src: url('../assets/fonts/CabinetGrotesk-Regular.ttf');
@@ -6,67 +8,4 @@
 @font-face {
   font-family: clash;
   src: url('../assets/fonts/ClashDisplay-Regular.otf');
-}
-
-:root {
-
-  --primary: #d4ff00;
-  --primary-hover: #c3ef00;
-
-  --background: #0d0d0d;
-
-  --surface: #161616;
-  --surface-hover: #1f1f1f;
-
-  --border: #2d2d2d;
-
-  --text: #ffffff;
-  --text-light: #8c8c8c;
-
-  --danger: #ef4444;
-  --success: #22c55e;
-
-  --font-family: clash;
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
-
-  --shadow: 0 10px 40px rgba(0, 0, 0, .35);
-
-  --transition: .3s ease;
-
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-}
-
-body {
-  min-height: 100vh;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
 }
