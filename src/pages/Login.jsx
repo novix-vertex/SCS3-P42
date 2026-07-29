@@ -26,12 +26,12 @@ const Login = () => {
                 <section className="section-left border border-neutral-800 flex flex-col justify-between p-8 lg:p-12">
                     <Logo />
                     <div className="max-w-xl">
-                        <p className="mb-6 text-sm font-semibold uppercase text-lime-400 tracking-[0.15em]">
+                        <p className="mb-6 text-sm font-semibold uppercase text-[#C8F400] tracking-[0.15em]">
                             Welcome Back
                         </p>
                         <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl">Shop the future.
                             <br />
-                            <span className="text-lime-400">
+                            <span className="text-[#C8F400]">
                                 Today.
                             </span>
                         </h1>
