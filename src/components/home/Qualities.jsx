@@ -1,5 +1,5 @@
 import { Zap, Shield, Tag } from "lucide-react"
-import StatsCard2 from "../StatCard2"
+import StatsCard2 from "../common/StatCard2"
 
 const Qualities = () => {
     return (

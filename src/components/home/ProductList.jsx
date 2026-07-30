@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import ProductListItem from "../ProductListItem";
+import ProductListItem from "../common/ProductListItem";
 
 const ProductList = ({
     title,

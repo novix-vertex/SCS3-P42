@@ -1,5 +1,5 @@
 import ProductList from "../components/shop/ProductList"
-import SearchFilter from "../components/shop/SearchFilter"
+import SearchFilter from "../components/common/SearchFilter"
 
 const Shop = () => {
   return (

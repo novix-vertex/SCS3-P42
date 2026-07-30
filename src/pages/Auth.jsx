@@ -1,7 +1,7 @@
 import Logo from "../components/Logo"
-import StatCard from "../components/StatCard";
-import LoginCard from "../components/LoginCard";
-import RegisterCard from "../components/RegisterCard";
+import StatCard from "../components/common/StatCard";
+import LoginCard from "../components/auth/LoginCard";
+import RegisterCard from "../components/auth/RegisterCard";
 
 const Auth = () => {
     const statistics = [
