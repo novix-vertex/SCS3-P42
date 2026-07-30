@@ -1,4 +1,5 @@
 import ProductCard from "../ProductCard";
+import ProductDetails from "../productDetails/ProductDetails";
 
 const ProductList = () => {
     const products = [
@@ -104,20 +105,22 @@ const ProductList = () => {
         },
     ];
     return (
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-8 lg:p-12">
-            {products.map((product) => (
-                <ProductCard
-                    key={product.id}
-                    image={product.image}
-                    category={product.category}
-                    title={product.title}
-                    rating={product.rating}
-                    reviews={product.reviews}
-                    price={product.price}
-                    isAdded={product.isAdded}
-                />
-            ))}
-        </div>
+        <>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-8 lg:p-12">
+                {products.map((product) => (
+                    <ProductCard
+                        key={product.id}
+                        image={product.image}
+                        category={product.category}
+                        title={product.title}
+                        rating={product.rating}
+                        reviews={product.reviews}
+                        price={product.price}
+                        isAdded={product.isAdded}
+                    />
+                ))}
+            </div>
+        </>
     );
 }
 
