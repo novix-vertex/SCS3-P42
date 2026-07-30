@@ -1,12 +1,29 @@
-import {
-  ArrowRight,
-  Eye,
-  Lock,
-  Mail,
-  User
-} from "lucide-react";
+import { ArrowRight, Eye, Lock, Mail, User } from "lucide-react";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../context/AuthContext";
 
-const RegisterCard = () => {
+const RegisterCard = ({ setIsLogin }) => {
+
+  const { registerUser } = useContext(AuthContext);
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const password = watch("password");
+
+  const onSubmit = (data) => {
+    const result = registerUser({
+      name: data.name.trim(),
+      email: data.email.trim(),
+      password: data.password.trim(),
+    });
+    if (!result.status) {
+      toast.error(result.message);
+      return;
+    }
+    toast.success(result.message);
+    setIsLogin(true);
+  }
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center">
 
@@ -20,7 +37,9 @@ const RegisterCard = () => {
           Join SkyMart and start shopping
         </p>
 
-        <div className="mt-12 space-y-5">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mt-12 space-y-5">
 
           <div className="relative">
             <User
@@ -29,6 +48,9 @@ const RegisterCard = () => {
             />
 
             <input
+              {...register("name", {
+                required: "Name is required"
+              })}
               type="text"
               placeholder="Full name"
               className="h-16 w-full rounded-2xl border border-[#333333] bg-[#1C1C1C] pl-16 pr-5 text-white placeholder:text-gray-500 outline-none transition focus:border-[#D9FF00]"
@@ -42,6 +64,9 @@ const RegisterCard = () => {
             />
 
             <input
+              {...register("email", {
+                required: "Email is required"
+              })}
               type="email"
               placeholder="Email address"
               className="h-16 w-full rounded-2xl border border-[#333333] bg-[#1C1C1C] pl-16 pr-5 text-white placeholder:text-gray-500 outline-none transition focus:border-[#D9FF00]"
@@ -55,6 +80,9 @@ const RegisterCard = () => {
             />
 
             <input
+              {...register("password", {
+                required: "Password is required"
+              })}
               type="password"
               placeholder="Password (min 6 chars)"
               className="h-16 w-full rounded-2xl border border-[#333333] bg-[#1C1C1C] pl-16 pr-16 text-white placeholder:text-gray-500 outline-none transition focus:border-[#D9FF00]"
@@ -73,13 +101,17 @@ const RegisterCard = () => {
             />
 
             <input
+              {...register("confirmPassword", {
+                required: "Confirm password is required",
+                validate: (value) => value === password.trim() || "Passwords do not match"
+              })}
               type="password"
               placeholder="Confirm password"
               className="h-16 w-full rounded-2xl border border-[#333333] bg-[#1C1C1C] pl-16 pr-5 text-white placeholder:text-gray-500 outline-none transition focus:border-[#D9FF00]"
             />
           </div>
 
-          <button className="group mt-2 flex h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[#D9FF00] text-2xl font-semibold text-black transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(217,255,0,0.4)]">
+          <button type="submit" className="group mt-2 flex h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[#D9FF00] text-2xl font-semibold text-black transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(217,255,0,0.4)]">
             Create Account
 
             <ArrowRight
@@ -87,11 +119,11 @@ const RegisterCard = () => {
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
           </button>
-        </div>
+        </form>
 
         <p className="mt-10 text-center text-lg text-gray-500">
           Already have an account?{" "}
-          <span className="cursor-pointer font-semibold text-[#D9FF00] hover:underline">
+          <span onClick={() => setIsLogin(true)} className="cursor-pointer font-semibold text-[#D9FF00] hover:underline">
             Sign in
           </span>
         </p>
