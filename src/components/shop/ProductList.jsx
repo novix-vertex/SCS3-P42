@@ -1,0 +1,124 @@
+import ProductCard from "../ProductCard";
+
+const ProductList = () => {
+    const products = [
+        {
+            id: 1,
+            category: "Electronics",
+            title: "Wireless Bluetooth Headphones",
+            image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+            price: 99.99,
+            rating: 5,
+            reviews: 120,
+            isAdded: true,
+        },
+        {
+            id: 2,
+            category: "Electronics",
+            title: "Smart Watch Series X",
+            image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+            price: 249.99,
+            rating: 4,
+            reviews: 95,
+            isAdded: false,
+        },
+        {
+            id: 3,
+            category: "Accessories",
+            title: "Premium Leather Backpack",
+            image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
+            price: 79.99,
+            rating: 5,
+            reviews: 180,
+            isAdded: false,
+        },
+        {
+            id: 4,
+            category: "Footwear",
+            title: "Running Sports Shoes",
+            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+            price: 129.99,
+            rating: 4,
+            reviews: 150,
+            isAdded: true,
+        },
+        {
+            id: 5,
+            category: "Fashion",
+            title: "Classic Denim Jacket",
+            image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500",
+            price: 89.99,
+            rating: 5,
+            reviews: 210,
+            isAdded: false,
+        },
+        {
+            id: 6,
+            category: "Photography",
+            title: "Mirrorless Camera",
+            image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500",
+            price: 799.99,
+            rating: 5,
+            reviews: 85,
+            isAdded: false,
+        },
+        {
+            id: 7,
+            category: "Furniture",
+            title: "Modern Wooden Chair",
+            image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500",
+            price: 149.99,
+            rating: 4,
+            reviews: 74,
+            isAdded: false,
+        },
+        {
+            id: 8,
+            category: "Gaming",
+            title: "Mechanical RGB Keyboard",
+            image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=500",
+            price: 119.99,
+            rating: 5,
+            reviews: 162,
+            isAdded: true,
+        },
+        {
+            id: 9,
+            category: "Home",
+            title: "Ceramic Coffee Mug",
+            image: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=500",
+            price: 19.99,
+            rating: 4,
+            reviews: 130,
+            isAdded: false,
+        },
+        {
+            id: 10,
+            category: "Electronics",
+            title: "Portable Bluetooth Speaker",
+            image: "https://images.unsplash.com/photo-1507878866276-a947ef722fee?w=500",
+            price: 59.99,
+            rating: 5,
+            reviews: 198,
+            isAdded: false,
+        },
+    ];
+    return (
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-8 lg:p-12">
+            {products.map((product) => (
+                <ProductCard
+                    key={product.id}
+                    image={product.image}
+                    category={product.category}
+                    title={product.title}
+                    rating={product.rating}
+                    reviews={product.reviews}
+                    price={product.price}
+                    isAdded={product.isAdded}
+                />
+            ))}
+        </div>
+    );
+}
+
+export default ProductList

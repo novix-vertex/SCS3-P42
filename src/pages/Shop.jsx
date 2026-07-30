@@ -1,6 +1,13 @@
+import ProductList from "../components/shop/ProductList"
+import SearchFilter from "../components/shop/SearchFilter"
+
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <>
+      <SearchFilter />
+
+      <ProductList />
+    </>
   )
 }
 
