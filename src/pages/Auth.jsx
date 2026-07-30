@@ -3,7 +3,7 @@ import StatCard from "../components/StatCard";
 import LoginCard from "../components/LoginCard";
 import RegisterCard from "../components/RegisterCard";
 
-const Login = () => {
+const Auth = () => {
     const statistics = [
         {
             id: 1,
@@ -60,4 +60,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Auth
