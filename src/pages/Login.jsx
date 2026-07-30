@@ -1,5 +1,7 @@
 import Logo from "../components/Logo"
 import StatCard from "../components/StatCard";
+import LoginCard from "../components/LoginCard";
+import RegisterCard from "../components/RegisterCard";
 
 const Login = () => {
     const statistics = [
@@ -50,8 +52,8 @@ const Login = () => {
                         })}
                     </div>
                 </section>
-                <section className="section-right border border-neutral-800 flex items-center justify-center p-6 lg:p-12">
-                    Right Section
+                <section className=" section-right border border-neutral-800 flex items-center justify-center">
+                    <RegisterCard />
                 </section>
             </div>
         </main>
