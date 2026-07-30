@@ -23,7 +23,7 @@ const TopItemsList = () => {
         },
         {
             id: 4,
-            image: "https://images.unsplash.com/photo-1616627452094-f9605b0f6f79?w=200",
+            image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=200",
             title: "Aromatherapy Oil Diffuser",
             price: "49.99",
         },
