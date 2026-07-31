@@ -1,4 +1,3 @@
-import { Box } from "lucide-react"
 import CategoryCard from "../CategoryCard"
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
