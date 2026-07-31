@@ -3,6 +3,7 @@ import { ProductContext } from "../context/ProductContext";
 import { useContext } from "react";
 import ProductGallery from "../components/productDetails/ProductGallery";
 import ProductInfo from "../components/productDetails/ProductInfo";
+import RelatedProducts from "../components/products/RelatedProducts";
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -27,10 +28,12 @@ const ProductDetails = () => {
                         image={product.image}
                         title={product.title}
                     />
+
                     <ProductInfo
                         product={product}
                     />
                 </div>
+                <RelatedProducts product={product} />
             </div>
         </div>
     )

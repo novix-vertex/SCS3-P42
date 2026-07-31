@@ -3,13 +3,15 @@ import { useContext } from "react";
 import { NavLink } from "react-router";
 import { CartContext } from "../../context/CartContext";
 
-const ProductCard = ({ id, image, category, title, rating, reviews, price, isAdded }) => {
+
+const ProductCard = ({ product }) => {
+    const { id, image, category, title, rating, reviews, price, isAdded } = product;
     const { addToCart, isInCart } = useContext(CartContext);
     const added = isInCart(id);
 
     return (
         <NavLink to={`/product/${id}`}>
-            <div className="max-w-[320px] overflow-hidden rounded-4xl border border-white/15 bg-[#121212] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div className="max-w-100 h-full overflow-hidden rounded-4xl border border-white/15 bg-[#121212] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
                 <div className="relative bg-[#F4F4F4] px-8 pt-8 pb-10">
 
