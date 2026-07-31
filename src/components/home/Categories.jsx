@@ -1,61 +1,31 @@
 import { Box } from "lucide-react"
 import CategoryCard from "../CategoryCard"
-
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 const Categories = () => {
-
-    const categoriesData = [
-        {
-            icon: Box,
-            iconBg: "bg-purple-500/10",
-            iconColor: "text-purple-400",
-            title: "Electronics",
-            quantity: "2 items",
-        },
-        {
-            icon: Box,
-            iconBg: "bg-purple-500/10",
-            iconColor: "text-purple-400",
-            title: "Clothing",
-            quantity: "2 items",
-        },
-        {
-            icon: Box,
-            iconBg: "bg-purple-500/10",
-            iconColor: "text-purple-400",
-            title: "Furniture",
-            quantity: "2 items",
-        },
-        {
-            icon: Box,
-            iconBg: "bg-purple-500/10",
-            iconColor: "text-purple-400",
-            title: "Home",
-            quantity: "2 items",
-        },
-        {
-            icon: Box,
-            iconBg: "bg-purple-500/10",
-            iconColor: "text-purple-400",
-            title: "Sports",
-            quantity: "2 items",
-        },
-        {
-            icon: Box,
-            iconBg: "bg-purple-500/10",
-            iconColor: "text-purple-400",
-            title: "Accessories",
-            quantity: "2 items",
-        },
-    ];
+    const { categories, products } = useContext(ProductContext);
     return (
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {categories.slice(1).map((category) => {
 
-            {categoriesData.map((item, index) => (
+                const count = products.filter(
+                    (product) => product.category === category
+                ).length;
+
+                return (
+                    <CategoryCard
+                        key={category}
+                        title={category}
+                        quantity={`${count} items`}
+                    />
+                );
+            })}
+            {/* {categoriesData.map((item, index) => (
                 <CategoryCard
                     key={index}
                     {...item}
                 />
-            ))}
+            ))} */}
         </div>
     );
 }

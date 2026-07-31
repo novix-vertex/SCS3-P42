@@ -1,7 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 
 const HomeHero = () => {
+    const { products } = useContext(ProductContext);
     return (
         <section className="overflow-hidden rounded-[36px] border border-neutral-300/80 bg-[#111111]">
 
@@ -64,7 +67,7 @@ const HomeHero = () => {
                     <div className="rounded-3xl border border-lime-400/30 bg-lime-400/10 p-8 text-center">
 
                         <h2 className="text-6xl font-bold text-lime-400">
-                            20+
+                            {products.length}+
                         </h2>
 
                         <p className="mt-3 text-lg text-neutral-400">
