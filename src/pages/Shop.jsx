@@ -3,11 +3,13 @@ import SearchFilter from "../components/common/SearchFilter"
 
 const Shop = () => {
   return (
-    <>
-      <SearchFilter />
+    <div className="bg-[#0A0A0A] text-white">
+      <div className="mx-auto max-w-7xl px-5 py-20 space-y-24">
 
-      <ProductList />
-    </>
+        <SearchFilter />
+        <ProductList />
+      </div>
+    </div>
   )
 }
 
