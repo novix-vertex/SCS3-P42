@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 
 const ProductInfo = ({ product }) => {
 
-    const { addToCart, isInCart, getCartQuantity, increaseQuantity, decreaseQuantity, setOpenCart } = useContext(CartContext);
+    const { addToCart, isInCart, getCartQuantity, increaseQuantity, decreaseQuantity,setOpenCart } = useContext(CartContext);
     const added = isInCart(product.id);
     const quantity = getCartQuantity(product.id);
 
@@ -127,7 +127,7 @@ const ProductInfo = ({ product }) => {
 
             </div>
 
-            {/* <ProductNavigation /> */}
+            <ProductNavigation currentId={product.id}/>
 
         </div>
     );
