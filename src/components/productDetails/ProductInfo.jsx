@@ -3,8 +3,10 @@ import { Check, Heart, Shield, Truck, RotateCcw, ShoppingCart, Star } from "luci
 import QuantitySelector from "./QuantitySelector";
 import FeatureCard from "./FeatureCard";
 import ProductNavigation from "./ProductNavigation";
+import { useState } from "react";
 
 const ProductInfo = ({ product }) => {
+    const [quantity, setQuantity] = useState(1);
     return (
         <div>
 
@@ -52,7 +54,9 @@ const ProductInfo = ({ product }) => {
             </p>
 
             <div className="mt-8">
-                <QuantitySelector quantity={1} />
+                <QuantitySelector
+                    quantity={quantity}
+                    setQuantity={setQuantity} />
             </div>
 
 
