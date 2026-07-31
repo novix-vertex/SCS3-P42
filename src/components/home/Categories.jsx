@@ -20,12 +20,7 @@ const Categories = () => {
                     />
                 );
             })}
-            {/* {categoriesData.map((item, index) => (
-                <CategoryCard
-                    key={index}
-                    {...item}
-                />
-            ))} */}
+            
         </div>
     );
 }
