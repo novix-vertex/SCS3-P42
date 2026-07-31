@@ -4,13 +4,10 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
-    const [cartItems, setCartItems] = useState(() => {
-        const cart = getCart();
-        return cart ? JSON.parse(cart) : []
-    });
+    const [cartItems, setCartItems] = useState(getCart);
 
     useEffect(() => {
-        saveCart();
+        saveCart(cartItems);
     }, [cartItems]);
 
     const isInCart = (id) => {
@@ -58,13 +55,18 @@ const CartProvider = ({ children }) => {
     };
 
 
-    const cartCount = cartItems.reduce((total, item) =>
-        total + item.quantity,
+    const cartCount = cartItems.reduce(
+        (total, item) => total + item.quantity,
         0);
 
     const cartTotal = cartItems.reduce(
         (total, item) => total + item.price * item.quantity,
-        0)
+        0);
+
+    const getCartQuantity = (id) => {
+        const item = cartItems.find((item) => item.id === id);
+        return item ? item.quantity : 0;
+    };
 
     return (
         <CartContext.Provider value={{
@@ -76,7 +78,8 @@ const CartProvider = ({ children }) => {
             increaseQuantity,
             decreaseQuantity,
             cartCount,
-            cartTotal
+            cartTotal,
+            getCartQuantity
         }}>
             {children}
         </CartContext.Provider>

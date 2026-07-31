@@ -3,10 +3,18 @@ import { Check, Heart, Shield, Truck, RotateCcw, ShoppingCart, Star } from "luci
 import QuantitySelector from "./QuantitySelector";
 import FeatureCard from "./FeatureCard";
 import ProductNavigation from "./ProductNavigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const ProductInfo = ({ product }) => {
-    const [quantity, setQuantity] = useState(1);
+
+    const { addToCart, isInCart, getCartQuantity, increaseQuantity, decreaseQuantity, } = useContext(CartContext);
+    const added = isInCart(product.id);
+    const quantity = getCartQuantity(product.id);
+
+    const handleAddToCart = () => {
+        addToCart(product, 1);
+    };
     return (
         <div>
 
@@ -53,22 +61,37 @@ const ProductInfo = ({ product }) => {
                 {product.description}
             </p>
 
-            <div className="mt-8">
-                <QuantitySelector
-                    quantity={quantity}
-                    setQuantity={setQuantity} />
-            </div>
+            {
+                added && (
+                    <div className="mt-8">
+                        <QuantitySelector
+                            quantity={quantity}
+                            increase={() => increaseQuantity(product.id)}
+                            decrease={() => decreaseQuantity(product.id)}
+                        />
+                    </div>
+                )
+            }
 
 
             <div className="mt-8 flex gap-4">
 
-                <button className="flex-1 rounded-3xl bg-green-900 py-5 text-2xl font-semibold text-green-300">
+                <button
+                    onClick={handleAddToCart}
+                    className={`flex-1 rounded-3xl py-5 text-2xl font-semibold transition-all
+        ${added
+                            ? "bg-green-900 text-green-300 cursor-not-allowed"
+                            : "bg-lime-400 text-black hover:bg-lime-300 cursor-pointer"
+                        }`}
+                >
 
                     <div className="flex items-center justify-center gap-3">
-                        <Check />
-                        Added to Cart
-                    </div>
 
+                        {added ? <Check /> : <ShoppingCart />}
+
+                        {added ? `Added (${quantity})` : "Add To Cart"}
+
+                    </div>
                 </button>
 
                 <button className="rounded-3xl border border-white/10 px-6 hover:border-lime-400">

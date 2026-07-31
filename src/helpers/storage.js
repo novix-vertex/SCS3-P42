@@ -27,5 +27,5 @@ export const saveCart = (cart) => {
 }
 
 export const getCart = () => {
-    return localStorage.getItem(CART_KEY);
+    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
