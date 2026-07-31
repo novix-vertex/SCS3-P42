@@ -10,7 +10,7 @@ const ProductCard = ({
     isAdded,
 }) => {
     return (
-        <div className="w-[320px] overflow-hidden rounded-4xl border border-white/15 bg-[#121212] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <div className="max-w-[320px] overflow-hidden rounded-4xl border border-white/15 bg-[#121212] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
             <div className="relative bg-[#F4F4F4] px-8 pt-8 pb-10">
 
@@ -31,7 +31,7 @@ const ProductCard = ({
                     {category}
                 </p>
 
-                <h2 className="line-clamp-2 text-3xl font-bold leading-tight text-gray-200">
+                <h2 className="line-clamp-2 text-2xl font-bold leading-tight text-gray-200">
                     {title}
                 </h2>
 
@@ -57,7 +57,7 @@ const ProductCard = ({
                 {/* Bottom */}
                 <div className="flex items-center justify-between">
 
-                    <h3 className="text-5xl font-bold text-lime-400">
+                    <h3 className="text-2xl font-bold text-lime-400">
                         ${price}
                     </h3>
 
