@@ -3,9 +3,14 @@ import {
     LogOut,
     Zap,
 } from "lucide-react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router";
+import CartSidebar from "../cart/CartSidebar";
+import { CartContext } from "../../context/CartContext";
 
 const Navbar = () => {
+    const [openCart, setOpenCart] = useState(false);
+    const { cartCount } = useContext(CartContext);
     return (
         <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111111]">
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
@@ -76,16 +81,20 @@ const Navbar = () => {
 
                     </button>
 
-                    <button className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[#1C1C1C] transition hover:border-lime-400/50">
+                    <button onClick={() => setOpenCart(true)} className="cursor-pointer relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[#1C1C1C] transition hover:border-lime-400/50">
 
                         <ShoppingCart
                             size={22}
                             className="text-white"
                         />
 
-                        <span className="absolute -right-1 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-lime-400 text-xs font-bold text-black">
-                            3
-                        </span>
+                        {
+                            cartCount > 0 && (
+                                <span className="absolute -right-1 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-lime-400 text-xs font-bold text-black">
+                                    {cartCount}
+                                </span>
+                            )
+                        }
 
                     </button>
 
@@ -99,7 +108,12 @@ const Navbar = () => {
                 </div>
 
             </div>
+            <CartSidebar
+                open={openCart}
+                onClose={() => setOpenCart(false)}
+            />
         </header>
+
     );
 };
 

@@ -68,19 +68,11 @@ const CartProvider = ({ children }) => {
         return item ? item.quantity : 0;
     };
 
+    const deliveryFee = cartItems.length > 0 ? 40 : 0;
+    const grandTotal = cartTotal + deliveryFee;
+
     return (
-        <CartContext.Provider value={{
-            cartItems,
-            isInCart,
-            addToCart,
-            removeFromCart,
-            clearCart,
-            increaseQuantity,
-            decreaseQuantity,
-            cartCount,
-            cartTotal,
-            getCartQuantity
-        }}>
+        <CartContext.Provider value={{ cartItems, isInCart, addToCart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity, cartCount, cartTotal, getCartQuantity, deliveryFee, grandTotal }}>
             {children}
         </CartContext.Provider>
     )
