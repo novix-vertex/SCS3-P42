@@ -2,7 +2,7 @@ import { Handshake, Star, Truck, Shield } from "lucide-react"
 import StatsCard2 from "../common/StatCard2";
 
 const WhatWeStandCard = () => {
-    const stats = [
+    const features = [
         {
             icon: Shield,
             title: "Trust",
@@ -10,8 +10,8 @@ const WhatWeStandCard = () => {
             value: "",
             iconBg: "bg-lime-500/10",
             iconColor: "text-lime-400",
-            showValue: true,
-            showBg: true
+            showValue: false,
+            showBG: true
         },
         {
             icon: Truck,
@@ -20,8 +20,8 @@ const WhatWeStandCard = () => {
             value: "",
             iconBg: "bg-lime-500/10",
             iconColor: "text-lime-400",
-            showValue: true,
-            showBg: true
+            showValue: false,
+            showBG: true
         },
         {
             icon: Handshake,
@@ -30,8 +30,8 @@ const WhatWeStandCard = () => {
             value: "",
             iconBg: "bg-lime-500/10",
             iconColor: "text-lime-400",
-            showValue: true,
-            showBg: true
+            showValue: false,
+            showBG: true
         },
         {
             icon: Star,
@@ -40,16 +40,16 @@ const WhatWeStandCard = () => {
             value: "",
             iconBg: "bg-lime-500/10",
             iconColor: "text-lime-400",
-            showValue: true,
-            showBg: true
+            showValue: false,
+            showBG: true
         },
     ];
     return (
         <>
-            <h2 className="text-4xl font-bold text-white">{"What We Stand For"}</h2>
+            <h2 className="text-center text-4xl font-bold text-white">{"What We Stand For"}</h2>
 
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 flex-wrap">
-                {stats.map((item) => (
+            <div className="grid gap-6 lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 flex-wrap">
+                {features.map((item) => (
                     <StatsCard2
                         key={item.title}
                         {...item}

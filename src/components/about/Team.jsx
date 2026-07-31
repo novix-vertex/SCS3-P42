@@ -33,7 +33,7 @@ const Team = () => {
     ];
     return (
         <>
-            <h2 className="text-4xl font-bold text-white">{"Meet the Team"}</h2>
+            <h2 className="text-center text-4xl font-bold text-white">{"Meet the Team"}</h2>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 flex-wrap">
 
