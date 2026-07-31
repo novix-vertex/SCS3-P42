@@ -58,8 +58,16 @@ const ProductProvider = ({ children }) => {
         "Rating",
     ];
 
+    const topRatedProducts = [...products]
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 5);
+
+    const newArrivalProducts = [...products]
+        .sort((a, b) => b.id - a.id)
+        .slice(0, 5);
+
     return (
-        <ProductContext.Provider value={{ products, filteredProducts, search, setSearch, category, setCategory, sortBy, setSortBy, categories, sortOptions, }}>
+        <ProductContext.Provider value={{ products, filteredProducts, search, setSearch, category, setCategory, sortBy, setSortBy, categories, sortOptions, topRatedProducts, newArrivalProducts }}>
             {children}
         </ProductContext.Provider>
     );
