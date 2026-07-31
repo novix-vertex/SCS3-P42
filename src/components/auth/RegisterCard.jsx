@@ -24,6 +24,11 @@ const RegisterCard = ({ setIsLogin }) => {
     setIsLogin(true);
   }
 
+  const onError = (errors) => {
+    const firstError = Object.values(errors)[0];
+    toast.error(firstError.message);
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center">
 
@@ -38,7 +43,7 @@ const RegisterCard = ({ setIsLogin }) => {
         </p>
 
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit,onError)}
           className="mt-12 space-y-5">
 
           <div className="relative">
@@ -81,7 +86,11 @@ const RegisterCard = ({ setIsLogin }) => {
 
             <input
               {...register("password", {
-                required: "Password is required"
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters"
+                }
               })}
               type="password"
               placeholder="Password (min 6 chars)"
@@ -111,7 +120,7 @@ const RegisterCard = ({ setIsLogin }) => {
             />
           </div>
 
-          <button type="submit" className="group mt-2 flex h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[#D9FF00] text-2xl font-semibold text-black transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(217,255,0,0.4)]">
+          <button type="submit" className="cursor-pointer group mt-2 flex h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[#D9FF00] text-2xl font-semibold text-black transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(217,255,0,0.4)]">
             Create Account
 
             <ArrowRight

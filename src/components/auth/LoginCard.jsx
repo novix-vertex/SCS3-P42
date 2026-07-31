@@ -20,8 +20,12 @@ const LoginCard = ({ setIsLogin }) => {
         }
         toast.success(result.message);
         navigate("/home");
-
     }
+    const onError = (errors) => {
+        const firstError = Object.values(errors)[0];
+        toast.error(firstError.message);
+    };
+
     return (
         <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-4">
             <div className="w-full max-w-140 rounded-[30px] border border-[#2A2A2A] bg-[#121212] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
@@ -34,7 +38,7 @@ const LoginCard = ({ setIsLogin }) => {
                 </p>
 
                 <form
-                    onSubmit={handleSubmit(onSubmit)}
+                    onSubmit={handleSubmit(onSubmit, onError)}
                     className="mt-12 space-y-6">
                     <div className="relative">
                         <Mail
@@ -73,7 +77,7 @@ const LoginCard = ({ setIsLogin }) => {
                         />
                     </div>
 
-                    <button type="submit" className="group flex h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[#D9FF00] text-2xl font-semibold text-black transition-all hover:scale-[1.01] hover:shadow-[0_0_25px_rgba(217,255,0,0.4)]">
+                    <button type="submit" className="cursor-pointer group flex h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[#D9FF00] text-2xl font-semibold text-black transition-all hover:scale-[1.01] hover:shadow-[0_0_25px_rgba(217,255,0,0.4)]">
                         Sign in
 
                         <ArrowRight
