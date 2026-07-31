@@ -1,8 +1,4 @@
-const CategoryCard = ({ icon:Icon,
-    iconBg,
-    iconColor,
-    title,
-    quantity }) => {
+const CategoryCard = ({ icon:Icon, iconBg, iconColor, title, quantity }) => {
     return (
         <div className="flex gap-5 items-center justify-center flex-col rounded-3xl border border-gray-300/80 bg-[#111111] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-lime-400/40 hover:shadow-lg">
             <div
