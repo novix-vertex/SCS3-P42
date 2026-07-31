@@ -19,7 +19,7 @@ const StatsCard2 = ({
             <div>
                 {
                     showValue ?
-                        <h2 className="text-4xl font-bold text-white">{value}</h2>
+                        <h2 className="text-4xl mb-4 font-bold text-white">{value}</h2>
                         :
                         ""}
 
