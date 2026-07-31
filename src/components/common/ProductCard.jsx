@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
                     <img
                         src={image}
                         alt={title}
-                        className="mx-auto h-52 w-full object-contain"
+                        className="mx-auto h-52 w-full object-cover"
                     />
                 </div>
 

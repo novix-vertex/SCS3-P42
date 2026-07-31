@@ -5,7 +5,7 @@ const ProductGallery = ({ image, title }) => {
             <img
                 src={image}
                 alt={title}
-                className="max-h-137 object-contain"
+                className="max-h-137 object-cover"
             />
 
         </div>
