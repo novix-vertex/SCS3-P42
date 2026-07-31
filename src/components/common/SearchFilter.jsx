@@ -1,9 +1,16 @@
 import { Search, ChevronDown } from "lucide-react";
-import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
-
+import { useLocation } from "react-router";
+import { useEffect, useContext } from "react";
 const SearchFilter = () => {
+    const location = useLocation();
     const { search, setSearch, category, setCategory, sortBy, setSortBy, categories, sortOptions } = useContext(ProductContext);
+
+    useEffect(() => {
+        if (location.state?.category) {
+            setCategory(location.state.category);
+        }
+    }, [location.state, setCategory]);
     return (
         <div className="flex flex-col gap-4 rounded-3xl border border-gray-300/80 bg-[#111111] p-5 lg:flex-row lg:items-center">
 

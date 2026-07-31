@@ -1,8 +1,6 @@
-import { useState } from "react";
 import SearchFilter from "../components/common/SearchFilter"
 import ProductGrid from "../components/shop/ProductGrid"
 import ShopHeader from "../components/shop/ShopHeader"
-
 const Shop = () => {
   return (
     <div className="bg-[#0A0A0A] text-white">

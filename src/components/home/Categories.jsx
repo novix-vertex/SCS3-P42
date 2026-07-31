@@ -1,6 +1,7 @@
 import CategoryCard from "../CategoryCard"
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
+import { NavLink } from "react-router";
 const Categories = () => {
     const { categories, products } = useContext(ProductContext);
     return (
@@ -12,14 +13,19 @@ const Categories = () => {
                 ).length;
 
                 return (
-                    <CategoryCard
+                    <NavLink
                         key={category}
-                        title={category}
-                        quantity={`${count} items`}
-                    />
+                        to="/shop"
+                        state={{ category }}
+                    >
+                        <CategoryCard
+                            title={category}
+                            quantity={`${count} items`}
+                        />
+                    </NavLink>
                 );
             })}
-            
+
         </div>
     );
 }
