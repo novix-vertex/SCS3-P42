@@ -1,12 +1,4 @@
-import {
-    Check,
-    Heart,
-    Shield,
-    Truck,
-    RotateCcw,
-    ShoppingCart,
-    Star,
-} from "lucide-react";
+import { Check, Heart, Shield, Truck, RotateCcw, ShoppingCart, Star } from "lucide-react";
 
 import QuantitySelector from "./QuantitySelector";
 import FeatureCard from "./FeatureCard";
@@ -20,16 +12,15 @@ const ProductInfo = ({ product }) => {
                 {product.category}
             </span>
 
-            <h1 className="mt-6 text-6xl font-bold">
+            <h1 className="mt-6 text-4xl font-bold">
                 {product.title}
             </h1>
 
-            {/* Rating */}
 
             <div className="mt-6 flex items-center gap-4">
 
                 <div className="flex text-yellow-400">
-                    {[...Array(product.rating)].map((_, index) => (
+                    {[...Array(product.rating)].map((value, index) => (
                         <Star
                             key={index}
                             size={18}
@@ -50,7 +41,7 @@ const ProductInfo = ({ product }) => {
 
             <hr className="my-8 border-white/20" />
 
-            <h2 className="text-7xl font-bold text-lime-400">
+            <h2 className="text-3xl font-bold text-lime-400">
                 ${product.price}
             </h2>
 
@@ -64,7 +55,6 @@ const ProductInfo = ({ product }) => {
                 <QuantitySelector quantity={1} />
             </div>
 
-            {/* Buttons */}
 
             <div className="mt-8 flex gap-4">
 
@@ -87,7 +77,6 @@ const ProductInfo = ({ product }) => {
                 View Cart →
             </button>
 
-            {/* Features */}
 
             <div className="mt-8 grid grid-cols-3 gap-4">
 

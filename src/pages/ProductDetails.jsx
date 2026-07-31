@@ -1,16 +1,38 @@
+import { useParams } from "react-router";
+import { ProductContext } from "../context/ProductContext";
+import { useContext } from "react";
+import ProductGallery from "../components/productDetails/ProductGallery";
+import ProductInfo from "../components/productDetails/ProductInfo";
+
 const ProductDetails = () => {
-    const product = {
-        id: 9,
-        category: "Home",
-        title: "Ceramic Coffee Mug",
-        image: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=500",
-        price: 19.99,
-        rating: 4,
-        reviews: 130,
-        isAdded: false,
-    };
+    const { id } = useParams();
+    const { products } = useContext(ProductContext);
+    const product = products.find(
+        (item) => item.id === Number(id)
+    );
+
+    if (!product) {
+        return (
+            <div className="py-20 text-center text-3xl text-white">
+                Product not found
+            </div>
+        );
+    }
+
     return (
-        <ProductDetails product={product} />
+        <div className="bg-[#0A0A0A] text-white">
+            <div className="mx-auto max-w-7xl px-5 py-20">
+                <div className="grid gap-14 lg:grid-cols-2">
+                    <ProductGallery
+                        image={product.image}
+                        title={product.title}
+                    />
+                    <ProductInfo
+                        product={product}
+                    />
+                </div>
+            </div>
+        </div>
     )
 }
 

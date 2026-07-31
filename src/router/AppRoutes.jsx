@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout"
 import Home from "../pages/Home"
 import Shop from "../pages/Shop"
 import About from "../pages/About"
-import ProductDetails from "../components/productDetails/ProductDetails"
+import ProductDetails from "../pages/ProductDetails"
 import ProtectedRoutes from "./ProtectedRoutes"
 import RootLayout from "../layouts/RootLayout"
 

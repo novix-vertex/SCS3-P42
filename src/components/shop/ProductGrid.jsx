@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import ProductCard from "../common/ProductCard";
 import { ProductContext } from "../../context/ProductContext"
-import ProductDetails from "../productDetails/ProductDetails";
 import EmptyProducts from "./EmptyProducts"
 const ProductGrid = () => {
     const { filteredProducts } = useContext(ProductContext);
