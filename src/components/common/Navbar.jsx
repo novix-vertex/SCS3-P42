@@ -1,16 +1,16 @@
-import {
-    ShoppingCart,
-    LogOut,
-    Zap,
-} from "lucide-react";
+import { ShoppingCart, LogOut, Zap } from "lucide-react";
 import { useContext, useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import CartSidebar from "../cart/CartSidebar";
 import { CartContext } from "../../context/CartContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
     const [openCart, setOpenCart] = useState(false);
     const { cartCount } = useContext(CartContext);
+    const { currentUser, logoutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     return (
         <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111111]">
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
@@ -72,11 +72,11 @@ const Navbar = () => {
                     <button className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-2 transition hover:border-lime-400/50">
 
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-lime-400 font-bold text-black">
-                            H
+                            {currentUser?.name?.charAt(0).toUpperCase()}
                         </div>
 
                         <span className="text-xl font-medium text-gray-300">
-                            happy
+                            {currentUser?.name}
                         </span>
 
                     </button>
@@ -98,7 +98,11 @@ const Navbar = () => {
 
                     </button>
 
-                    <button className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[#1C1C1C] transition hover:border-red-400/50">
+                    <button onClick={() => {
+                        logoutUser();
+                        navigate("/");
+                    }}
+                        className="cursor-pointer flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[#1C1C1C] transition hover:border-red-400/50">
                         <LogOut
                             size={22}
                             className="text-gray-300"

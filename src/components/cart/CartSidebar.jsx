@@ -36,7 +36,6 @@ const CartSidebar = ({ open, onClose }) => {
                     </div>
                     <button onClick={() => {
                         onClose()
-                        clearCart()
                     }
                     }>
                         <X className="cursor-pointer text-gray-400" />
