@@ -6,8 +6,7 @@ import { CartContext } from "../../context/CartContext";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
-    const [openCart, setOpenCart] = useState(false);
-    const { cartCount } = useContext(CartContext);
+    const { cartCount, openCart, setOpenCart } = useContext(CartContext);
     const { currentUser, logoutUser } = useContext(AuthContext);
     const navigate = useNavigate();
 

@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 
 const ProductInfo = ({ product }) => {
 
-    const { addToCart, isInCart, getCartQuantity, increaseQuantity, decreaseQuantity, } = useContext(CartContext);
+    const { addToCart, isInCart, getCartQuantity, increaseQuantity, decreaseQuantity,setOpenCart } = useContext(CartContext);
     const added = isInCart(product.id);
     const quantity = getCartQuantity(product.id);
 
@@ -100,7 +100,7 @@ const ProductInfo = ({ product }) => {
 
             </div>
 
-            <button className="mt-5 w-full rounded-3xl border border-white/20 py-5 text-xl font-semibold hover:border-lime-400">
+            <button onClick={() => setOpenCart(true)} className="cursor-pointer mt-5 w-full rounded-3xl border border-white/20 py-5 text-xl font-semibold hover:border-lime-400">
                 View Cart →
             </button>
 
